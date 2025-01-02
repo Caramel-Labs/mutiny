@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	rotation = (mouse_position - global_position).angle() + PI / 2
 
 	# Move the ship forward in its current direction when the up arrow is pressed
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("up"):
 		# Calculate the forward direction based on the ship's rotation
 		var forward_direction = Vector2(cos(rotation - PI / 2), sin(rotation - PI / 2))
 		velocity = forward_direction * SPEED
