@@ -319,7 +319,7 @@ sources/1 = SubResource("TileSetAtlasSource_6k3ps")
 
 [node name="Ship" parent="." instance=ExtResource("2_aov2d")]
 z_index = 1
-position = Vector2(733, 271)
+position = Vector2(555, 303)
 
 [node name="Camera2D" type="Camera2D" parent="Ship"]
 position = Vector2(13, 4)

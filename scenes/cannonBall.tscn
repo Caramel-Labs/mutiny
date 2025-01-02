@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://t6ae658ud2r8"]
+
+[ext_resource type="Texture2D" uid="uid://tpp4wa6cb1wf" path="res://assets/PNG/Default size/Ship parts/cannonBall.png" id="1_qvdjf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfwdc"]
+radius = 6.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dfwdc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qvdjf")
