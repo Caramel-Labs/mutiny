@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0  # Speed of the ship
+const SPEED = 200.0  # Speed of the ship
 const ROTATION_SPEED = 5.0  # Rotation speed of the ship
 
 func _physics_process(delta: float) -> void:
