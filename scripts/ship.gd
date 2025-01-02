@@ -1,34 +1,21 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const ROTATION_SPEED = 5.0  # Speed at which the ship turns
+const SPEED = 300.0  # Speed of the ship
+const ROTATION_SPEED = 5.0  # Rotation speed of the ship
 
 func _physics_process(delta: float) -> void:
-	# Get the input direction for movement (horizontal and vertical)
-	var input_vector := Vector2.ZERO
+	# Rotate the ship to face the mouse, adjusting for its front orientation
+	var mouse_position = get_global_mouse_position()
+	rotation = (mouse_position - global_position).angle() + PI / 2
+
+	# Move the ship forward in its current direction when the up arrow is pressed
 	if Input.is_action_pressed("ui_up"):
-		input_vector.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		input_vector.y += 1
-	if Input.is_action_pressed("ui_left"):
-		input_vector.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		input_vector.x += 1
-
-	# Normalize the direction to avoid faster diagonal movement
-	input_vector = input_vector.normalized()
-
-	# If there's any input, move the ship and rotate it to face the movement direction
-	if input_vector != Vector2.ZERO:
-		# Rotate the ship toward the movement direction (negative angle for correct orientation)
-		rotation = input_vector.angle() + PI / 2
-
-		# Set velocity to move in the desired direction
-		velocity = input_vector * SPEED
+		# Calculate the forward direction based on the ship's rotation
+		var forward_direction = Vector2(cos(rotation - PI / 2), sin(rotation - PI / 2))
+		velocity = forward_direction * SPEED
 	else:
-		# Decelerate when there's no input
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		# Stop the ship if the up arrow is not pressed
+		velocity = Vector2.ZERO
 
-	# Apply the movement
+	# Apply movement
 	move_and_slide()
