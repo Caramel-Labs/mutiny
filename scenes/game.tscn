@@ -116,3 +116,6 @@ layer_0/tile_data = PackedInt32Array(0, 524290, 4, 1, 524290, 4, 2, 524290, 4, 6
 
 [node name="Ship" parent="." instance=ExtResource("2_aov2d")]
 position = Vector2(560, 300)
+
+[node name="Camera2D" type="Camera2D" parent="Ship"]
+position = Vector2(1, 8)
