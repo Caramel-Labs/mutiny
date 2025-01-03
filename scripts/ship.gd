@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 200.0  # Speed of the ship
 const ROTATION_SPEED = 5.0  # Rotation speed of the ship
-const BULLET_SPEED  = 200
+const BULLET_SPEED  = 400.0
 const NUM_SHOTS :int = 3
 const SHOT_SPREAD :float = 10.0
 
