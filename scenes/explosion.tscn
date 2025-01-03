@@ -42,9 +42,11 @@ _data = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_y1c8w")
 animation = &"explosion"
-frame_progress = 0.61607
+frame = 2
+frame_progress = 0.46717
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -7,9 +7,11 @@
 size = Vector2(36, 98)
 
 [node name="Ship" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_1uy1h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 rotation = -3.14178
 texture = ExtResource("1_61wwy")
@@ -18,7 +20,7 @@ texture = ExtResource("1_61wwy")
 shape = SubResource("RectangleShape2D_74hch")
 
 [node name="Marker_left" type="Marker2D" parent="."]
-position = Vector2(-15, -11)
+position = Vector2(-17, -11)
 
 [node name="Marker_right" type="Marker2D" parent="."]
 position = Vector2(16, -11)
