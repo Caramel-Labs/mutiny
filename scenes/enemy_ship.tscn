@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7ejae0fv7k3i"]
+[gd_scene load_steps=4 format=3 uid="uid://ccpyj3t1tpafa"]
 
 [ext_resource type="Texture2D" uid="uid://dpclxv5p8m74q" path="res://assets/PNG/Default size/Ships/ship (2).png" id="1_3n5wm"]
 [ext_resource type="Script" path="res://scripts/enemy_ship.gd" id="1_tcg4t"]
@@ -15,7 +15,6 @@ texture_filter = 1
 texture = ExtResource("1_3n5wm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_sj36w")
 
 [node name="MarkerLeft" type="Marker2D" parent="."]

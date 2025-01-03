@@ -45,7 +45,6 @@ func fire_cannonball(spawn_position: Vector2, direction: Vector2) -> void:
 		# Adjust angle slightly for each shot in a spread pattern
 		var spread_angle = SHOT_SPREAD * (i - NUM_SHOTS / 2.0)
 		var spread_direction = direction.rotated(deg_to_rad(spread_angle))
-		cannonBall_instance.linear_velocity = spread_direction * BULLET_SPEED
 
 		# Add the cannonball to the scene tree
 		get_tree().get_root().add_child(cannonBall_instance)

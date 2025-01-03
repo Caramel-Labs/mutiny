@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6p5lj4b3efgx"
+path="res://.godot/imported/cannon fire.wav-d0994a735e26acfabfe955ad886189cf.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/cannon fire.wav"
+dest_files=["res://.godot/imported/cannon fire.wav-d0994a735e26acfabfe955ad886189cf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

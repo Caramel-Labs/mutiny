@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bamvkgakwx1ap"]
+[gd_scene load_steps=5 format=3 uid="uid://bamvkgakwx1ap"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_1uy1h"]
 [ext_resource type="Texture2D" uid="uid://bj3samlfsy2ir" path="res://assets/PNG/Default size/Ships/ship (1).png" id="1_61wwy"]
+[ext_resource type="AudioStream" uid="uid://c6p5lj4b3efgx" path="res://assets/Sounds/cannon fire.wav" id="3_8t47p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74hch"]
 size = Vector2(36, 98)
@@ -20,7 +21,16 @@ texture = ExtResource("1_61wwy")
 shape = SubResource("RectangleShape2D_74hch")
 
 [node name="Marker_left" type="Marker2D" parent="."]
-position = Vector2(-17, -11)
+position = Vector2(-16, 1)
 
 [node name="Marker_right" type="Marker2D" parent="."]
-position = Vector2(16, -11)
+position = Vector2(16, 1)
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8t47p")
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
