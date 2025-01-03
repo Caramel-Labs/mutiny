@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 		# Stop the ship if the up arrow is not pressed
 		velocity = Vector2.ZERO
 		
+	move_and_slide()
+		
 	#Fire the cannons
 	if Input.is_action_just_pressed("fire_left"):	
 		var spawn_position = $Marker_left.global_position
@@ -42,6 +44,3 @@ func fire_cannonball(spawn_position: Vector2, direction: Vector2):
 		var spread_direction = direction.rotated(deg_to_rad(spread_angle))
 		cannonBall_instance.linear_velocity = spread_direction * BULLET_SPEED
 		get_tree().get_root().add_child(cannonBall_instance)
-
-	# Apply movement
-	move_and_slide()
