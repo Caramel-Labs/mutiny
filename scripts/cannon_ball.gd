@@ -24,7 +24,6 @@ func explode():
 		var explosion = explosion.instantiate()
 		explosion.global_position = global_position
 		get_parent().add_child(explosion)
-		
 		# Add a timer to remove the explosion after its duration
 		var timer = Timer.new()
 		timer.wait_time = explosion_duration
