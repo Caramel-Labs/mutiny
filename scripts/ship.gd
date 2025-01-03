@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 		
-	#Fire the cannons
+	# Fire portside (left) cannons
 	if Input.is_action_just_pressed("fire_left") and can_fire:	
 		var spawn_position = $Marker_left.global_position
 		var direction  = -transform.x.normalized()
@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		$FireSound.play()
 		trigger_cooldown()
 	
+	# Fire starboard (right) cannons
 	if Input.is_action_just_pressed("fire_right") and can_fire:
 		var spawn_position = $Marker_right.global_position
 		var direction  = transform.x.normalized()

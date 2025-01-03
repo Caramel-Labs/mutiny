@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnq5v0853i2yb" path="res://assets/Tilesheet/tiles_sheet.png" id="1_hpwgi"]
 [ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="2_aov2d"]
 [ext_resource type="Texture2D" uid="uid://d21gs6x0ef6q7" path="res://assets/Vector/shipsMiscellaneous_vector.svg" id="3_tbaaf"]
-[ext_resource type="PackedScene" uid="uid://ccpyj3t1tpafa" path="res://scenes/enemy_ship.tscn" id="3_v87x3"]
+[ext_resource type="PackedScene" uid="uid://7ejae0fv7k3i" path="res://scenes/enemy_ship.tscn" id="3_v87x3"]
 [ext_resource type="Texture2D" uid="uid://qfae6xhajtyj" path="res://assets/Preview_KenneyNL.png" id="4_y6k1w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gl5iq"]
