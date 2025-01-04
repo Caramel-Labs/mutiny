@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://gp8faixbsgev"]
+[gd_scene load_steps=71 format=4 uid="uid://gp8faixbsgev"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_044r3"]
 [ext_resource type="Texture2D" uid="uid://bnq5v0853i2yb" path="res://assets/Tilesheet/tiles_sheet.png" id="1_hpwgi"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cfctbaq8s64r6" path="res://assets/TinySwords Tileset/Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Purple/Pawn_Purple.png" id="28_ub8yp"]
 [ext_resource type="Texture2D" uid="uid://bflmiwtim7j1w" path="res://assets/TinySwords Tileset/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="29_pnb52"]
 [ext_resource type="PackedScene" uid="uid://hdeagplavc2x" path="res://scenes/touch_controls.tscn" id="31_cw7xm"]
+[ext_resource type="PackedScene" uid="uid://n1h5r3p0x36b" path="res://scenes/toggle.tscn" id="32_07dst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gl5iq"]
 texture = ExtResource("1_hpwgi")
@@ -14118,6 +14119,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TouchControls" parent="Control" instance=ExtResource("31_cw7xm")]
+
+[node name="Toggle" parent="Control" instance=ExtResource("32_07dst")]
 
 [node name="Multiplayer" type="Control" parent="."]
 unique_name_in_owner = true

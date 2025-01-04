@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://n1h5r3p0x36b"]
+
+[ext_resource type="Script" path="res://scripts/toggle.gd" id="1_5x7ri"]
+[ext_resource type="Texture2D" uid="uid://rhyosmi8s5rv" path="res://assets/Controls/Sprites/shaded-light/shadedLight07.png" id="2_pim1e"]
+[ext_resource type="Texture2D" uid="uid://srobohaxqvcl" path="res://assets/Controls/Sprites/shaded-light/shadedLight01.png" id="3_g6vml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4qr0"]
+radius = 80.0562
+
+[node name="Toggle" type="CanvasLayer"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1048, 544)
+script = ExtResource("1_5x7ri")
+
+[node name="ToggleBase" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_pim1e")
+
+[node name="ToggleTip" type="Sprite2D" parent="Area2D/ToggleBase"]
+texture = ExtResource("3_g6vml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_b4qr0")
