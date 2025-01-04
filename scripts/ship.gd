@@ -10,6 +10,10 @@ const SHOT_SPREAD :float = 10.0
 var can_fire: bool = true 
 var cannon_ball = preload("res://scenes/cannonBall.tscn")
 
+@export var player_id:= 1:
+	set(id):
+		player_id = id
+
 #setting the timer explicitly cuz can change this for different weapons and shi
 func _ready():
 	$ReloadTimer.wait_time = reload_time
