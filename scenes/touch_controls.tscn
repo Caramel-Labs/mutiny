@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://hdeagplavc2x"]
+
+[ext_resource type="Texture2D" uid="uid://8de21cpw0r47" path="res://assets/Controls/Sprites/shaded-dark/shadedDark03.png" id="1_gqn6b"]
+[ext_resource type="Texture2D" uid="uid://sndxjtgmj264" path="res://assets/Controls/Sprites/shaded-dark/shadedDark05.png" id="2_61qgl"]
+[ext_resource type="Texture2D" uid="uid://oigsqia71ylv" path="res://assets/Controls/Sprites/transparent-dark/transparentDark01.png" id="2_baibg"]
+[ext_resource type="Texture2D" uid="uid://c6a7lsrvpgpr8" path="res://assets/Controls/Sprites/shaded-dark/shadedDark06.png" id="3_vk7mg"]
+[ext_resource type="Texture2D" uid="uid://bvd00igdyn52j" path="res://assets/Controls/Sprites/shaded-dark/shadedDark10.png" id="4_36o37"]
+[ext_resource type="Texture2D" uid="uid://dpmb2hhtxdfyr" path="res://assets/Controls/Sprites/transparent-dark/transparentDark03.png" id="4_nwtk0"]
+[ext_resource type="Texture2D" uid="uid://bocqon8t2q04i" path="res://assets/Controls/Sprites/transparent-dark/transparentDark04.png" id="6_26wgf"]
+[ext_resource type="Texture2D" uid="uid://cj36j5ilsu8ep" path="res://assets/Controls/Sprites/transparent-dark/transparentDark08.png" id="8_7nkuv"]
+
+[node name="TouchControls" type="CanvasLayer"]
+
+[node name="Move" type="TouchScreenButton" parent="."]
+position = Vector2(86, 458)
+texture_normal = ExtResource("1_gqn6b")
+texture_pressed = ExtResource("2_baibg")
+action = "up"
+
+[node name="FireLeft" type="TouchScreenButton" parent="."]
+position = Vector2(32, 509)
+texture_normal = ExtResource("2_61qgl")
+texture_pressed = ExtResource("4_nwtk0")
+action = "fire_left"
+
+[node name="FireRight" type="TouchScreenButton" parent="."]
+position = Vector2(126, 509)
+texture_normal = ExtResource("3_vk7mg")
+texture_pressed = ExtResource("6_26wgf")
+action = "fire_right"
+
+[node name="Back" type="TouchScreenButton" parent="."]
+position = Vector2(86, 545)
+texture_normal = ExtResource("4_36o37")
+texture_pressed = ExtResource("8_7nkuv")
