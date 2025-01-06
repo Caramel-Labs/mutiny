@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://gp8faixbsgev"]
+[gd_scene load_steps=98 format=4 uid="uid://gp8faixbsgev"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_044r3"]
 [ext_resource type="Texture2D" uid="uid://bnq5v0853i2yb" path="res://assets/Tilesheet/tiles_sheet.png" id="1_hpwgi"]
@@ -19425,6 +19425,17 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_eyltp")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pjfkd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_isbm8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tiy13"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j3r1t"]
+normal = Vector2(-1, 0)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_044r3")
 
@@ -19524,6 +19535,30 @@ spawn_path = NodePath("../Players")
 spawn_limit = 3
 
 [node name="Players" type="Node2D" parent="."]
+
+[node name="LeftWorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWorldBorder"]
+position = Vector2(-2560, -758)
+shape = SubResource("WorldBoundaryShape2D_pjfkd")
+
+[node name="BottomWorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWorldBorder"]
+position = Vector2(216, 2624)
+shape = SubResource("WorldBoundaryShape2D_isbm8")
+
+[node name="TopWorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWorldBorder"]
+position = Vector2(6, -2560)
+shape = SubResource("WorldBoundaryShape2D_tiy13")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2624, -18)
+shape = SubResource("WorldBoundaryShape2D_j3r1t")
 
 [connection signal="pressed" from="Multiplayer/Panel/VBoxContainer/HostButton" to="." method="become_host"]
 [connection signal="pressed" from="Multiplayer/Panel/VBoxContainer/JoinButton" to="." method="join_as_player"]
