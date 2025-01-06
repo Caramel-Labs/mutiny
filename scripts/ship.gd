@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 200.0  # Speed of the ship
-const ROTATION_SPEED = 3.0  # Adjust rotation speed for smooth turning
+const ROTATION_SPEED = 1.0  # Adjust rotation speed for smooth turning
 
 const NUM_SHOTS :int = 3
 const SHOT_SPREAD :float = 10.0
@@ -20,17 +20,17 @@ func _ready():
 	$ReloadTimer.one_shot = true
 
 func _physics_process(delta: float) -> void:
-	# Rotate the ship left or right using "A" and "D" keys
-	if Input.is_action_pressed("left"):
-		rotation -= ROTATION_SPEED * delta
-	elif Input.is_action_pressed("right"):
-		rotation += ROTATION_SPEED * delta
-
 	# Move the ship forward in its current direction when the "W" key is pressed
 	if Input.is_action_pressed("up"):
 		# Calculate the forward direction based on the ship's rotation
 		var forward_direction = Vector2(cos(rotation - PI / 2), sin(rotation - PI / 2))
 		velocity = forward_direction * SPEED
+
+		# Rotate the ship left or right if "W" and "A" or "D" are pressed together
+		if Input.is_action_pressed("left"):
+			rotation -= ROTATION_SPEED * delta
+		elif Input.is_action_pressed("right"):
+			rotation += ROTATION_SPEED * delta
 	else:
 		# Stop the ship if the "W" key is not pressed
 		velocity = Vector2.ZERO
