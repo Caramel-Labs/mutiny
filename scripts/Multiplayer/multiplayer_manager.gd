@@ -15,7 +15,7 @@ func host_game():
 	if error:
 		return error
 	multiplayer.multiplayer_peer = server_peer
-	remove_single_player()
+	#remove_single_player()
 	add_player_to_game(1)
 	
 	#move this later to the _ready function for better structure 
@@ -29,13 +29,12 @@ func join_game():
 	if error:
 		return error
 	multiplayer.multiplayer_peer = client_peer
-	remove_single_player()
+	#remove_single_player()
 	
 	
 func add_player_to_game(id:int):
 	print("player %s joined the game" %id)	
 	var player_to_add = player_scene.instantiate()
-	player_to_add.player_id = id
 	player_to_add.name = str(id)
 	players_spawn_node.add_child(player_to_add, true)
 

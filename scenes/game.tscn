@@ -1,8 +1,7 @@
-[gd_scene load_steps=98 format=4 uid="uid://gp8faixbsgev"]
+[gd_scene load_steps=97 format=4 uid="uid://gp8faixbsgev"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_044r3"]
 [ext_resource type="Texture2D" uid="uid://bnq5v0853i2yb" path="res://assets/Tilesheet/tiles_sheet.png" id="1_hpwgi"]
-[ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="2_aov2d"]
 [ext_resource type="Texture2D" uid="uid://d21gs6x0ef6q7" path="res://assets/Vector/shipsMiscellaneous_vector.svg" id="3_tbaaf"]
 [ext_resource type="Texture2D" uid="uid://qfae6xhajtyj" path="res://assets/Preview_KenneyNL.png" id="4_y6k1w"]
 [ext_resource type="Texture2D" uid="uid://bervnx0uypna2" path="res://assets/Skull Tileset/Objects.png" id="5_iv0f5"]
@@ -19439,10 +19438,6 @@ normal = Vector2(-1, 0)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_044r3")
 
-[node name="Ship" parent="." instance=ExtResource("2_aov2d")]
-z_index = 1
-position = Vector2(555, 303)
-
 [node name="TileMap" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_c0hri")
 
@@ -19559,6 +19554,8 @@ shape = SubResource("WorldBoundaryShape2D_tiy13")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2624, -18)
 shape = SubResource("WorldBoundaryShape2D_j3r1t")
+
+[node name="Cannonballs" type="Node2D" parent="."]
 
 [connection signal="pressed" from="Multiplayer/Panel/VBoxContainer/HostButton" to="." method="become_host"]
 [connection signal="pressed" from="Multiplayer/Panel/VBoxContainer/JoinButton" to="." method="join_as_player"]

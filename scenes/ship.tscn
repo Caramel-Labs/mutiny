@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bamvkgakwx1ap"]
+[gd_scene load_steps=6 format=3 uid="uid://bamvkgakwx1ap"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_1uy1h"]
 [ext_resource type="Texture2D" uid="uid://bj3samlfsy2ir" path="res://assets/PNG/Default size/Ships/ship (1).png" id="1_61wwy"]
@@ -6,6 +6,17 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74hch"]
 size = Vector2(36, 98)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bag7g"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:sync_velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="Ship" type="CharacterBody2D"]
 z_index = 2
@@ -34,5 +45,8 @@ one_shot = true
 stream = ExtResource("3_8t47p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_bag7g")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
