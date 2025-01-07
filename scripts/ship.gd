@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
-const ROTATION_SPEED = 5.0
+const SPEED:float= 200.0
+const ROTATION_SPEED:float = 5.0
+const MAX_HEALTH:float = 100.0
 const NUM_SHOTS: int = 3
 const SHOT_SPREAD: float = 10.0
 
@@ -19,11 +20,18 @@ var can_fire: bool = true
 	set(value):
 		sync_velocity = value
 		velocity = value
-
+		
+@export var sync_health:float = MAX_HEALTH:
+	set(value):
+		sync_health = value
+		if sync_health <= 0 :
+			destroy_ship.rpc()
+			
+			
 func _enter_tree() -> void:
 	var peer_id  = str(name).to_int()
 	set_multiplayer_authority(peer_id)
-	if multiplayer_synchronizer:
+	if multiplayer_synchronizer: 
 		multiplayer_synchronizer.set_multiplayer_authority(peer_id)
 		print("authority set to", peer_id)
 			
@@ -33,7 +41,7 @@ func _ready():
 	# Set up timer
 	$ReloadTimer.wait_time = reload_time
 	$ReloadTimer.one_shot = true
-	
+	sync_health = MAX_HEALTH
 	if multiplayer.get_unique_id() == get_multiplayer_authority():
 		camera.make_current()
 	else:
@@ -117,6 +125,26 @@ func spawn_cannonballs(spawn_position: Vector2, direction: Vector2):
 		get_tree().get_current_scene().get_node("Cannonballs").add_child(cannonBall_instance, true)	
 	
 
+@rpc("any_peer")
+func request_damage(amount:float):
+	
+	if multiplayer.get_unique_id() != 1:
+		return
+	
+	apply_damage.rpc(amount)	
+
+@rpc("any_peer", "call_local")	
+func apply_damage(amount:float):
+	sync_health -= amount
+	#print(sync_health, multiplayer.get_unique_id())
+
+@rpc("any_peer", "call_local")
+func destroy_ship():
+	if not is_multiplayer_authority():
+		return
+	
+	queue_free()	
+	
 func trigger_cooldown():
 	can_fire = false
 	$ReloadTimer.start()

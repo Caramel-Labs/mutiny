@@ -41,5 +41,7 @@ func explode():
 	queue_free()
 
 func _on_body_entered(body: Node) -> void:
-	if body != ignore_body:
+	
+	if body.has_method("request_damage") and body != ignore_body:
+		body.request_damage.rpc(20.0)
 		explode()
