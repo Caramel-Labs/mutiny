@@ -43,5 +43,5 @@ func explode():
 func _on_body_entered(body: Node) -> void:
 	
 	if body.has_method("request_damage") and body != ignore_body:
-		body.request_damage.rpc(20.0)
+		body.request_damage.rpc(10.0)
 		explode()
