@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bamvkgakwx1ap"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_1uy1h"]
-[ext_resource type="Texture2D" uid="uid://dj7wjuh11i8h8" path="res://assets/man-o-war.png" id="2_hunqy"]
+[ext_resource type="Texture2D" uid="uid://bj3samlfsy2ir" path="res://assets/PNG/Default size/Ships/ship (1).png" id="2_rmp0o"]
 [ext_resource type="AudioStream" uid="uid://c6p5lj4b3efgx" path="res://assets/Sounds/cannon fire.wav" id="3_8t47p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74hch"]
@@ -28,9 +28,9 @@ script = ExtResource("1_1uy1h")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
 texture_filter = 1
-rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_hunqy")
+rotation = 3.14159
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_rmp0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_74hch")
