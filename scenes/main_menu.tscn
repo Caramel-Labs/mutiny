@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://e2y0ang81rnt"]
+[gd_scene load_steps=9 format=3 uid="uid://biq2qij8ffbqu"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_vtamn"]
 [ext_resource type="Texture2D" uid="uid://746wrki7cw8k" path="res://assets/start_background.png" id="2_ompb8"]
@@ -74,7 +74,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="HostButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -86,9 +86,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_mindk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uu0yq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g22x6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p30vn")
-text = "Start Game"
+text = "Host Game"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="JoinButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -100,7 +100,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_mindk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uu0yq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g22x6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p30vn")
-text = "Options"
+text = "Join Game"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -135,6 +135,6 @@ text = "Mutiny!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
