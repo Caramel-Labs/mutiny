@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED:float= 200.0
-const ROTATION_SPEED:float = 5.0
+const ROTATION_SPEED:float = 1.0
 const MAX_HEALTH:float = 100.0
 const NUM_SHOTS: int = 3
 const SHOT_SPREAD: float = 10.0
