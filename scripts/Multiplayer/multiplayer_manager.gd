@@ -4,7 +4,7 @@ const PORT = 8080
 const SERVER_IP = "127.0.0.1"
 const MAX_CONNECTIONS = 6
 var players = {}
-var player_scene = preload("res://scenes/ship.tscn")
+var player_scene = preload("res://scenes/ships/clipper.tscn")
 var players_spawn_node
 
 func host_game():

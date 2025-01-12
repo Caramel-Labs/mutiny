@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bamvkgakwx1ap"]
 
-[ext_resource type="Script" path="res://scripts/ship.gd" id="1_1uy1h"]
-[ext_resource type="Texture2D" uid="uid://dj7wjuh11i8h8" path="res://assets/man-o-war.png" id="2_hunqy"]
-[ext_resource type="AudioStream" uid="uid://c6p5lj4b3efgx" path="res://assets/Sounds/cannon fire.wav" id="3_8t47p"]
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_1avic"]
+[ext_resource type="Texture2D" uid="uid://c37jpxvi4gq35" path="res://assets/PNG/Default size/Ships/ship (5).png" id="2_eqakl"]
+[ext_resource type="AudioStream" uid="uid://c6p5lj4b3efgx" path="res://assets/Sounds/cannon fire.wav" id="3_3nw3f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_74hch"]
-size = Vector2(36, 98)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40l5q"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bag7g"]
 properties/0/path = NodePath(".:position")
@@ -23,17 +22,19 @@ properties/3/replication_mode = 1
 
 [node name="Ship" type="CharacterBody2D"]
 z_index = 2
-script = ExtResource("1_1uy1h")
+script = ExtResource("1_1avic")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
 texture_filter = 1
-rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_hunqy")
+rotation = 3.13244
+scale = Vector2(0.80456, 0.845212)
+texture = ExtResource("2_eqakl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_74hch")
+position = Vector2(0, 1)
+scale = Vector2(2, 2.972)
+shape = SubResource("CapsuleShape2D_40l5q")
 
 [node name="Marker_left" type="Marker2D" parent="."]
 position = Vector2(-16, 1)
@@ -46,7 +47,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FireSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_8t47p")
+stream = ExtResource("3_3nw3f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -1,0 +1,226 @@
+[gd_scene load_steps=23 format=3 uid="uid://udg1y8erhp0r"]
+
+[ext_resource type="Texture2D" uid="uid://746wrki7cw8k" path="res://assets/start_background.png" id="1_igbsp"]
+[ext_resource type="Script" path="res://scenes/selection_container.gd" id="2_jvjwd"]
+[ext_resource type="Texture2D" uid="uid://c37jpxvi4gq35" path="res://assets/PNG/Default size/Ships/ship (5).png" id="3_lxdou"]
+[ext_resource type="Texture2D" uid="uid://235n4rys5oeo" path="res://assets/PNG/Default size/Ships/ship (3).png" id="4_ld6x3"]
+[ext_resource type="Texture2D" uid="uid://dpclxv5p8m74q" path="res://assets/PNG/Default size/Ships/ship (2).png" id="5_tsj3a"]
+[ext_resource type="Texture2D" uid="uid://d1jq3ybm5wheh" path="res://assets/PNG/Default size/Ships/ship (6).png" id="6_k1qbr"]
+[ext_resource type="Texture2D" uid="uid://viwlv37vuqbl" path="res://assets/PNG/Default size/Ships/ship (4).png" id="7_dkl1t"]
+[ext_resource type="FontFile" uid="uid://b50w2hyhxrvfe" path="res://assets/Fonts/pixel_pirate.ttf" id="8_3hiqb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ql4qj"]
+texture = ExtResource("1_igbsp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hfbs"]
+bg_color = Color(100, 100, 100, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km2v6"]
+bg_color = Color(0.0235294, 0.0117647, 0, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejxg8"]
+bg_color = Color(0.0235294, 0.0117647, 0, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m66nj"]
+bg_color = Color(0.0235294, 0.0117647, 0, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r7sf"]
+bg_color = Color(0.0235294, 0.0117647, 0, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0t2h"]
+bg_color = Color(0.0235294, 0.0117647, 0, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_bwy3t"]
+
+[sub_resource type="FontVariation" id="FontVariation_yvt1b"]
+
+[sub_resource type="FontVariation" id="FontVariation_xm3oh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86011"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb74y"]
+bg_color = Color(0.772549, 0.772549, 0.772549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ol6vf"]
+bg_color = Color(0.639216, 0.639216, 0.639216, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n06em"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="ShipSelection" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.552956, 0.552956, 0.552955, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ql4qj")
+
+[node name="StatsPanel" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 819.0
+offset_top = 128.0
+offset_right = 1120.0
+offset_bottom = 470.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hfbs")
+
+[node name="SelectionContainer" type="HBoxContainer" parent="."]
+offset_left = 76.0
+offset_top = 132.0
+offset_right = 1096.0
+offset_bottom = 542.0
+theme_override_constants/separation = 100
+script = ExtResource("2_jvjwd")
+
+[node name="GridContainer" type="GridContainer" parent="SelectionContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="clipper" type="Button" parent="SelectionContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_3hiqb")
+theme_override_icons/icon = ExtResource("3_lxdou")
+theme_override_styles/normal = SubResource("StyleBoxFlat_km2v6")
+
+[node name="fireship" type="Button" parent="SelectionContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_3hiqb")
+theme_override_icons/icon = ExtResource("4_ld6x3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ejxg8")
+
+[node name="dreadnought" type="Button" parent="SelectionContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_3hiqb")
+theme_override_icons/icon = ExtResource("5_tsj3a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m66nj")
+
+[node name="bombketch" type="Button" parent="SelectionContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_3hiqb")
+theme_override_icons/icon = ExtResource("6_k1qbr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1r7sf")
+
+[node name="schooner" type="Button" parent="SelectionContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_3hiqb")
+theme_override_icons/icon = ExtResource("7_dkl1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0t2h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectionContainer"]
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="SelectionContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="StatsLabel" type="Label" parent="SelectionContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_3hiqb")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="SelectionContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_bwy3t")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="SpeedLabel" type="Label" parent="SelectionContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_yvt1b")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageLabel" type="Label" parent="SelectionContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_xm3oh")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="SelectionContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_86011")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vb74y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ol6vf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n06em")
+text = "Confirm"
+
+[connection signal="pressed" from="SelectionContainer/GridContainer/clipper" to="SelectionContainer" method="_on_ship_button_pressed" binds= [0]]
+[connection signal="pressed" from="SelectionContainer/GridContainer/fireship" to="SelectionContainer" method="_on_ship_button_pressed" binds= [1]]
+[connection signal="pressed" from="SelectionContainer/GridContainer/dreadnought" to="SelectionContainer" method="_on_ship_button_pressed" binds= [2]]
