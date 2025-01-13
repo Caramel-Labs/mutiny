@@ -11,7 +11,7 @@ modulate_color = Color(0.47788, 0.47788, 0.47788, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mindk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu0yq"]
-bg_color = Color(0.77084, 0.770839, 0.770839, 1)
+bg_color = Color(0.949148, 0.949682, 0.971136, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -21,7 +21,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g22x6"]
-bg_color = Color(0.637843, 0.637843, 0.637843, 1)
+bg_color = Color(0.77084, 0.770839, 0.77084, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16

@@ -1,0 +1,221 @@
+[gd_scene load_steps=18 format=3 uid="uid://cn3fxvqufkts5"]
+
+[ext_resource type="Texture2D" uid="uid://746wrki7cw8k" path="res://assets/start_background.png" id="1_u754d"]
+[ext_resource type="Script" path="res://scripts/selection_menu.gd" id="2_2twoi"]
+[ext_resource type="Texture2D" uid="uid://c37jpxvi4gq35" path="res://assets/PNG/Default size/Ships/ship (5).png" id="3_q3o8q"]
+[ext_resource type="Texture2D" uid="uid://235n4rys5oeo" path="res://assets/PNG/Default size/Ships/ship (3).png" id="4_82wkn"]
+[ext_resource type="Texture2D" uid="uid://dpclxv5p8m74q" path="res://assets/PNG/Default size/Ships/ship (2).png" id="5_dnxwu"]
+[ext_resource type="Texture2D" uid="uid://d1jq3ybm5wheh" path="res://assets/PNG/Default size/Ships/ship (6).png" id="6_ks5q8"]
+[ext_resource type="Texture2D" uid="uid://viwlv37vuqbl" path="res://assets/PNG/Default size/Ships/ship (4).png" id="7_qwlym"]
+[ext_resource type="FontFile" uid="uid://b50w2hyhxrvfe" path="res://assets/Fonts/pixel_pirate.ttf" id="8_ku0wk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hh4v"]
+texture = ExtResource("1_u754d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhd0t"]
+bg_color = Color(100, 100, 100, 0.751)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d231"]
+bg_color = Color(0, 0, 0, 0.576471)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_qfqd0"]
+
+[sub_resource type="FontVariation" id="FontVariation_e3crl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jx5a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd0kb"]
+bg_color = Color(0.949148, 0.949682, 0.971136, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcjn8"]
+bg_color = Color(0.77084, 0.770839, 0.77084, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1p0x"]
+bg_color = Color(100, 100, 100, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="SelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.478431, 0.478431, 0.478431, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2hh4v")
+
+[node name="StatsPanel" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -407.0
+offset_top = -256.0
+offset_right = -57.0
+offset_bottom = 144.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhd0t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+script = ExtResource("2_2twoi")
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_ku0wk")
+theme_override_font_sizes/font_size = 14
+theme_override_icons/icon = ExtResource("3_q3o8q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1d231")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d231")
+text = "Clipper"
+
+[node name="Button2" type="Button" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_ku0wk")
+theme_override_font_sizes/font_size = 14
+theme_override_icons/icon = ExtResource("4_82wkn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1d231")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d231")
+text = "Fireship"
+
+[node name="Button3" type="Button" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_ku0wk")
+theme_override_font_sizes/font_size = 14
+theme_override_icons/icon = ExtResource("5_dnxwu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1d231")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d231")
+text = "DreadNought"
+
+[node name="Button4" type="Button" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_ku0wk")
+theme_override_font_sizes/font_size = 14
+theme_override_icons/icon = ExtResource("6_ks5q8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1d231")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d231")
+text = "BombKetch"
+
+[node name="Button5" type="Button" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_ku0wk")
+theme_override_font_sizes/font_size = 14
+theme_override_icons/icon = ExtResource("7_qwlym")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1d231")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d231")
+text = "Schooner"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(350, 500)
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StatsLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_ku0wk")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_qfqd0")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="SpeedLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_qfqd0")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="DamageLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_qfqd0")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_e3crl")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6jx5a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hd0kb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xcjn8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w1p0x")
+text = "Confirm"
