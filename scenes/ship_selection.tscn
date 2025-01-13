@@ -221,6 +221,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ol6vf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n06em")
 text = "Confirm"
 
+[node name="GameStartTimer" type="Timer" parent="SelectionContainer"]
+
 [connection signal="pressed" from="SelectionContainer/GridContainer/clipper" to="SelectionContainer" method="_on_ship_button_pressed" binds= [0]]
 [connection signal="pressed" from="SelectionContainer/GridContainer/fireship" to="SelectionContainer" method="_on_ship_button_pressed" binds= [1]]
 [connection signal="pressed" from="SelectionContainer/GridContainer/dreadnought" to="SelectionContainer" method="_on_ship_button_pressed" binds= [2]]
+[connection signal="pressed" from="SelectionContainer/VBoxContainer/ConfirmButton" to="SelectionContainer" method="_on_confirm_pressed"]
+[connection signal="timeout" from="SelectionContainer/GameStartTimer" to="SelectionContainer" method="_on_game_start_timer_timeout"]

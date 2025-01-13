@@ -7,6 +7,7 @@ func _ready() -> void:
 		become_host()
 	elif GameMode.mode == "join":
 		join_as_player()
+	pass	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -14,9 +15,8 @@ func _process(delta: float) -> void:
 
 func become_host():
 	MultiplayerManager.host_game()
-	%Multiplayer.hide()
+
 	
 
 func join_as_player():
 	MultiplayerManager.join_game()
-	%Multiplayer.hide()

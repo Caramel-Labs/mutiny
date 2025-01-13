@@ -29,14 +29,14 @@ func _ready() -> void:
 			continue
 		button.text = ships[i]["name"]
 		print("Button %d set to: %s" % [i, ships[i]["name"]])
-		button.pressed.connect(_on_ship_button_pressed.bind(i))
+		if not button.is_connected("pressed", _on_ship_button_pressed):
+			button.pressed.connect(_on_ship_button_pressed.bind(i))
 
 	# Set default stats for the first ship
 	_update_stats(selected_ship_index)
 
 	# Connect the Confirm button's signal
 	print("Connecting Confirm button signal...")
-	confirm_button.pressed.connect(_on_confirm_pressed)
 
 func _on_ship_button_pressed(ship_index: int) -> void:
 	print("Ship button pressed. Selected ship index: %d" % ship_index)
