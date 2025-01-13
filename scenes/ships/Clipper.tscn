@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://by3vi38phjiyy"]
+
+[ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="1_traoa"]
+[ext_resource type="Texture2D" uid="uid://c37jpxvi4gq35" path="res://assets/PNG/Default size/Ships/ship (5).png" id="2_uqadh"]
+
+[node name="Ship" instance=ExtResource("1_traoa")]
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 3.14159
+scale = Vector2(1, 1)
+texture = ExtResource("2_uqadh")
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(1, 1.01609)

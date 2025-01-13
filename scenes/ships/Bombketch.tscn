@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm3tthhqf60yx"]
+
+[ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="1_kla5f"]
+[ext_resource type="Texture2D" uid="uid://d1jq3ybm5wheh" path="res://assets/PNG/Default size/Ships/ship (6).png" id="2_2b1r6"]
+
+[node name="Ship" instance=ExtResource("1_kla5f")]
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 3.14159
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_2b1r6")
