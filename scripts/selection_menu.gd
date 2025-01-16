@@ -69,9 +69,8 @@ func _update_stats(ship_index: int) -> void:
 	print("Stats updated successfully for: %s" % ship["name"])
 
 func _on_confirm_pressed() -> void:
-	GameMode.selected_ship = ships[selected_ship_index]
-	print("Confirmed ship: %s" % GameMode.selected_ship["name"])
+	GameMode.selected_ship_name = ships[selected_ship_index]["name"]
+	print("Confirmed ship: %s" % GameMode.selected_ship_name)
 	print("Game mode: %s" % GameMode.mode)
-	
 	# Change to the game scene directly
 	get_tree().change_scene_to_file("res://scenes/game.tscn")

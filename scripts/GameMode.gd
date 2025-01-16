@@ -4,4 +4,5 @@ extends Node
 var mode: String = ""
 
 # Selected ship data
-var selected_ship: Dictionary = {}
+var player_ships: Dictionary = {}
+var selected_ship_name:String = ""
