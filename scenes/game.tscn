@@ -21116,7 +21116,7 @@ layout_mode = 2
 text = "Join Game"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://scenes/ship.tscn")
+_spawnable_scenes = PackedStringArray("res://scenes/ships/Clipper.tscn", "res://scenes/ships/Bombketch.tscn", "res://scenes/ships/Dreadnought.tscn", "res://scenes/ships/Fireship.tscn", "res://scenes/ships/Schooner.tscn")
 spawn_path = NodePath("../Players")
 spawn_limit = 3
 
