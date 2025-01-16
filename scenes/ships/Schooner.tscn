@@ -1,18 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://by5ea4ybumk5c"]
+[gd_scene load_steps=12 format=3 uid="uid://by5ea4ybumk5c"]
 
 [ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="1_d0j1e"]
+[ext_resource type="Texture2D" uid="uid://brrxkc7oxgygm" path="res://assets/PNG/Default size/Ships/ship (22).png" id="2_hl86u"]
 [ext_resource type="Texture2D" uid="uid://viwlv37vuqbl" path="res://assets/PNG/Default size/Ships/ship (4).png" id="2_jotuo"]
+[ext_resource type="Texture2D" uid="uid://613lebtkh3ws" path="res://assets/PNG/Default size/Ships/ship (10).png" id="4_gogbm"]
+[ext_resource type="Texture2D" uid="uid://bnxkmtsojrb5g" path="res://assets/PNG/Default size/Ships/ship (16).png" id="5_11cci"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4x7d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6w5i"]
+atlas = ExtResource("2_hl86u")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_733jw"]
+atlas = ExtResource("2_jotuo")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_valbl"]
+atlas = ExtResource("4_gogbm")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12cko"]
+atlas = ExtResource("5_11cci")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3dg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6w5i")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_733jw")
+}],
+"loop": true,
+"name": &"full_health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_valbl")
+}],
+"loop": true,
+"name": &"half_health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12cko")
+}],
+"loop": true,
+"name": &"low_health",
+"speed": 5.0
+}]
 
 [node name="Ship" instance=ExtResource("1_d0j1e")]
 
 [node name="Sprite2D" parent="." index="0"]
 rotation = 3.14159
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_jotuo")
+texture = null
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 2)
 scale = Vector2(3.65253, 5.52689)
 shape = SubResource("CapsuleShape2D_n4x7d")
+
+[node name="AnimatedSprite2D" parent="." index="8"]
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_j3dg1")
+animation = &"half_health"

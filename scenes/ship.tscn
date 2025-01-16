@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bamvkgakwx1ap"]
+[gd_scene load_steps=7 format=3 uid="uid://bamvkgakwx1ap"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_1uy1h"]
 [ext_resource type="Texture2D" uid="uid://dj7wjuh11i8h8" path="res://assets/man-o-war.png" id="2_hunqy"]
@@ -20,6 +20,29 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath(".:sync_health")
 properties/3/spawn = true
 properties/3/replication_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imwxt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"full_health",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"half_health",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"low_health",
+"speed": 5.0
+}]
 
 [node name="Ship" type="CharacterBody2D"]
 z_index = 2
@@ -52,5 +75,9 @@ stream = ExtResource("3_8t47p")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_bag7g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_imwxt")
+animation = &"full_health"
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

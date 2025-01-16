@@ -13,6 +13,7 @@ extends CharacterBody2D
 # Nodes for multiplayer and camera
 @onready var multiplayer_synchronizer = $MultiplayerSynchronizer
 @onready var camera = $Camera2D
+@onready var animated_sprite = $AnimatedSprite2D  # Ensure this is correct
 
 # Internal variables
 var can_fire: bool = true
@@ -25,6 +26,7 @@ var can_fire: bool = true
 @export var sync_health: float = max_health:
 	set(value):
 		sync_health = value
+		update_sprite()  # Call to update the sprite when health changes
 		if sync_health <= 0:
 			destroy_ship.rpc()
 
@@ -35,11 +37,11 @@ func _enter_tree() -> void:
 		multiplayer_synchronizer.set_multiplayer_authority(peer_id)
 		print("Authority set to", peer_id)
 
-# Setting up variables and camera
 func _ready() -> void:
 	$ReloadTimer.wait_time = reload_time
 	$ReloadTimer.one_shot = true
 	sync_health = max_health
+	update_sprite()  # Initial call to set the correct sprite
 	if multiplayer.get_unique_id() == get_multiplayer_authority():
 		camera.make_current()
 	else:
@@ -52,8 +54,8 @@ func _physics_process(delta: float) -> void:
 
 	handle_movement(delta)
 	handle_firing()
+	update_sprite()  # Update sprite based on movement
 
-# Virtual function for movement (can be overridden by child classes)
 func handle_movement(delta: float) -> void:
 	if Input.is_action_pressed("up"):
 		var forward_direction = Vector2(cos(rotation - PI / 2), sin(rotation - PI / 2))
@@ -69,7 +71,6 @@ func handle_movement(delta: float) -> void:
 	velocity = sync_velocity
 	move_and_slide()
 
-# Virtual function for firing (can be overridden by child classes)
 func handle_firing() -> void:
 	if Input.is_action_just_pressed("fire_left") and can_fire:
 		fire_cannons.rpc("left")
@@ -77,7 +78,6 @@ func handle_firing() -> void:
 	if Input.is_action_just_pressed("fire_right") and can_fire:
 		fire_cannons.rpc("right")
 
-# Function to handle cannon fire
 @rpc("any_peer", "call_local")
 func fire_cannons(side: String) -> void:
 	if not can_fire:
@@ -123,7 +123,6 @@ func spawn_cannonballs(spawn_position: Vector2, direction: Vector2) -> void:
 
 		get_tree().get_current_scene().get_node("Cannonballs").add_child(cannonball_instance, true)
 
-# Function to handle damage
 @rpc("any_peer")
 func request_damage(amount: float) -> void:
 	if multiplayer.get_unique_id() != 1:
@@ -140,10 +139,21 @@ func destroy_ship() -> void:
 		return
 	queue_free()
 
-# Trigger a cooldown for firing
 func trigger_cooldown() -> void:
 	can_fire = false
 	$ReloadTimer.start()
 
 func _on_reload_timer_timeout() -> void:
 	can_fire = true
+
+# Function to update the sprite based on the ship's state
+func update_sprite() -> void:
+	if animated_sprite:  # Check if the node is valid
+		if sync_health <= 0:
+			animated_sprite.play("destroyed")
+		elif sync_health < max_health * 0.4:
+			animated_sprite.play("low_health")
+		elif sync_health < max_health * 0.7:
+			animated_sprite.play("half_health")
+		else:
+			animated_sprite.play("full_health")
