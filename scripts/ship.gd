@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Constants for base ship behavior
-const SPEED: float = 200.0
+@export var speed: float = 200.0  # Default speed for base ships
 const ROTATION_SPEED: float = 1.0
 const MAX_HEALTH: float = 100.0
 const NUM_SHOTS: int = 3
@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 func handle_movement(delta: float) -> void:
 	if Input.is_action_pressed("up"):
 		var forward_direction = Vector2(cos(rotation - PI / 2), sin(rotation - PI / 2))
-		sync_velocity = forward_direction * SPEED
+		sync_velocity = forward_direction * speed
 
 		if Input.is_action_pressed("left"):
 			rotation -= ROTATION_SPEED * delta
