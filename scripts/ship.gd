@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
-# Constants for base ship behavior
-@export var speed: float = 200.0  # Default speed for base ships
-const ROTATION_SPEED: float = 1.0
-const MAX_HEALTH: float = 100.0
-const NUM_SHOTS: int = 3
-const SHOT_SPREAD: float = 10.0
-
 # Exported variables for customization
+@export var speed: float = 200.0  # Default speed for base ships
+@export var rotation_speed: float = 1.0
+@export var max_health: float = 100.0
+@export var num_shots: int = 3
+@export var shot_spread: float = 10.0
 @export var cannonball_speed: float = 400.0
 @export var reload_time: float = 2.0
 @export var cannon_ball: PackedScene = preload("res://scenes/cannonBall.tscn")
@@ -24,7 +22,7 @@ var can_fire: bool = true
 		sync_velocity = value
 		velocity = value
 
-@export var sync_health: float = MAX_HEALTH:
+@export var sync_health: float = max_health:
 	set(value):
 		sync_health = value
 		if sync_health <= 0:
@@ -41,7 +39,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	$ReloadTimer.wait_time = reload_time
 	$ReloadTimer.one_shot = true
-	sync_health = MAX_HEALTH
+	sync_health = max_health
 	if multiplayer.get_unique_id() == get_multiplayer_authority():
 		camera.make_current()
 	else:
@@ -62,9 +60,9 @@ func handle_movement(delta: float) -> void:
 		sync_velocity = forward_direction * speed
 
 		if Input.is_action_pressed("left"):
-			rotation -= ROTATION_SPEED * delta
+			rotation -= rotation_speed * delta
 		elif Input.is_action_pressed("right"):
-			rotation += ROTATION_SPEED * delta
+			rotation += rotation_speed * delta
 	else:
 		sync_velocity = Vector2.ZERO
 
@@ -112,14 +110,14 @@ func request_spawn_cannonballs(spawn_position: Vector2, direction: Vector2) -> v
 
 @rpc("any_peer", "call_local")
 func spawn_cannonballs(spawn_position: Vector2, direction: Vector2) -> void:
-	for i in range(NUM_SHOTS):
+	for i in range(num_shots):
 		var cannonball_instance = cannon_ball.instantiate()
 		cannonball_instance.set_multiplayer_authority(1)
 
 		cannonball_instance.global_position = spawn_position
 		cannonball_instance.ignore_body = self
 
-		var spread_angle = SHOT_SPREAD * (i - NUM_SHOTS / 2.0)
+		var spread_angle = shot_spread * (i - num_shots / 2.0)
 		var spread_direction = direction.rotated(deg_to_rad(spread_angle))
 		cannonball_instance.velocity = spread_direction.normalized() * cannonball_speed
 

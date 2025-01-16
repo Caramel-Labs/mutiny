@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l12hh"]
 
 [node name="Ship" instance=ExtResource("1_y3gwk")]
+max_health = 200.0
+num_shots = 5
+reload_time = 3.0
 
 [node name="Sprite2D" parent="." index="0"]
 rotation = 3.14159

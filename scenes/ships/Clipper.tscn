@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://by3vi38phjiyy"]
+[gd_scene load_steps=4 format=3 uid="uid://by3vi38phjiyy"]
 
 [ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="1_traoa"]
-[ext_resource type="Script" path="res://scripts/ships/clipper.gd" id="2_ovnhq"]
 [ext_resource type="Texture2D" uid="uid://c37jpxvi4gq35" path="res://assets/PNG/Default size/Ships/ship (5).png" id="2_uqadh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkvrv"]
 
 [node name="Ship" instance=ExtResource("1_traoa")]
-script = ExtResource("2_ovnhq")
+speed = 250.0
+rotation_speed = 2.0
 
 [node name="Sprite2D" parent="." index="0"]
 rotation = 3.14159
