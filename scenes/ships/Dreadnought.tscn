@@ -78,4 +78,3 @@ shape = SubResource("CapsuleShape2D_l12hh")
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nf7u3")
-animation = &"destroyed"

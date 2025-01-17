@@ -76,4 +76,3 @@ shape = SubResource("CapsuleShape2D_mkvrv")
 [node name="AnimatedSprite2D" parent="." index="8"]
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_20rbn")
-animation = &"low_health"
