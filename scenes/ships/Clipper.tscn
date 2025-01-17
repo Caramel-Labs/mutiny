@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://by3vi38phjiyy"]
+
+[ext_resource type="PackedScene" uid="uid://bamvkgakwx1ap" path="res://scenes/ship.tscn" id="1_traoa"]
+[ext_resource type="Texture2D" uid="uid://x2lab40ml2ig" path="res://assets/PNG/Default size/Ships/ship (23).png" id="2_4aup3"]
+[ext_resource type="Texture2D" uid="uid://c37jpxvi4gq35" path="res://assets/PNG/Default size/Ships/ship (5).png" id="2_uqadh"]
+[ext_resource type="Texture2D" uid="uid://yo6434btxpwh" path="res://assets/PNG/Default size/Ships/ship (11).png" id="4_aovy7"]
+[ext_resource type="Texture2D" uid="uid://d32bh6qxasgra" path="res://assets/PNG/Default size/Ships/ship (17).png" id="5_xx4p8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkvrv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_770oo"]
+atlas = ExtResource("2_4aup3")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjoai"]
+atlas = ExtResource("2_uqadh")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l76as"]
+atlas = ExtResource("4_aovy7")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3avb"]
+atlas = ExtResource("5_xx4p8")
+region = Rect2(0, 0, 66, 113)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20rbn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_770oo")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjoai")
+}],
+"loop": true,
+"name": &"full_health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l76as")
+}],
+"loop": true,
+"name": &"half_health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3avb")
+}],
+"loop": true,
+"name": &"low_health",
+"speed": 5.0
+}]
+
+[node name="Ship" instance=ExtResource("1_traoa")]
+speed = 250.0
+rotation_speed = 2.0
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 3.14159
+scale = Vector2(1, 1)
+texture = null
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)
+scale = Vector2(2.31191, 3.55577)
+shape = SubResource("CapsuleShape2D_mkvrv")
+
+[node name="AnimatedSprite2D" parent="." index="8"]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_20rbn")

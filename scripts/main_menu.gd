@@ -16,7 +16,7 @@ func _on_host_button_pressed() -> void:
 	print("The 'Start Game' button was pressed in the main menu.")
 	GameMode.mode = "host"
 	# Change scene to game scene
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/selection_menu.tscn")
 
 
 # Signal function to handle pressing the Join button
@@ -24,7 +24,7 @@ func _on_join_button_pressed() -> void:
 	print("The 'Join Game' button was pressed in the main menu.")
 	GameMode.mode = "join"
 	# Change scene to game scene
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/selection_menu.tscn")
 
 # Signal function to handle pressing the exit button
 func _on_exit_button_pressed() -> void:
