@@ -14,9 +14,8 @@ func _process(delta: float) -> void:
 
 func become_host():
 	MultiplayerManager.host_game()
-	%Multiplayer.hide()
+
 	
 
 func join_as_player():
 	MultiplayerManager.join_game()
-	%Multiplayer.hide()
