@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://4qhhe6rnf3ms"]
+
+[ext_resource type="Texture2D" uid="uid://rhyosmi8s5rv" path="res://assets/Controls/Sprites/shaded-light/shadedLight07.png" id="2_kgoyo"]
+[ext_resource type="Texture2D" uid="uid://srobohaxqvcl" path="res://assets/Controls/Sprites/shaded-light/shadedLight01.png" id="3_0wgw6"]
+
+[node name="Joystick" type="Node2D"]
+z_index = 2
+position = Vector2(937, 224)
+
+[node name="Base" type="TextureRect" parent="."]
+z_index = 2
+offset_right = 160.0
+offset_bottom = 160.0
+texture = ExtResource("2_kgoyo")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
+offset_left = 32.0
+offset_top = 33.0
+offset_right = 128.0
+offset_bottom = 133.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("3_0wgw6")
+metadata/_edit_use_anchors_ = true

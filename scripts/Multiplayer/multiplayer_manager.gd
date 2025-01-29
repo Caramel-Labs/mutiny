@@ -1,7 +1,7 @@
 extends Node
 
 const PORT = 8080
-const SERVER_IP = "127.0.0.1"
+const SERVER_IP = "172.20.10.3"
 const MAX_CONNECTIONS = 6
 var players = {}
 var player_scenes = {

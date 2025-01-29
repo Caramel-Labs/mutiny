@@ -65,7 +65,6 @@ num_shots = 5
 reload_time = 3.0
 
 [node name="Sprite2D" parent="." index="0"]
-rotation = 3.14159
 scale = Vector2(2, 2)
 texture = null
 

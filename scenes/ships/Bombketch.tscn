@@ -63,7 +63,6 @@ animations = [{
 [node name="Ship" instance=ExtResource("1_kla5f")]
 
 [node name="Sprite2D" parent="." index="0"]
-rotation = 3.14159
 scale = Vector2(1.25, 1.25)
 texture = null
 
