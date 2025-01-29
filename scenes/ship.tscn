@@ -1,8 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bamvkgakwx1ap"]
+[gd_scene load_steps=19 format=3 uid="uid://bamvkgakwx1ap"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_1uy1h"]
 [ext_resource type="Texture2D" uid="uid://bj3samlfsy2ir" path="res://assets/PNG/Default size/Ships/ship (1).png" id="2_rmp0o"]
 [ext_resource type="AudioStream" uid="uid://c6p5lj4b3efgx" path="res://assets/Sounds/cannon fire.wav" id="3_8t47p"]
+[ext_resource type="Texture2D" uid="uid://sosye5bna6rp" path="res://assets/HealthBar/VIDA_0.png" id="4_f40a6"]
+[ext_resource type="Texture2D" uid="uid://dixb1uehq4ujk" path="res://assets/HealthBar/VIDA_1.png" id="5_gmuv2"]
+[ext_resource type="Texture2D" uid="uid://cs8afc1po1mjh" path="res://assets/HealthBar/VIDA_2.png" id="6_6ubk5"]
+[ext_resource type="Texture2D" uid="uid://eu0wom88si02" path="res://assets/HealthBar/VIDA_3.png" id="7_2axqw"]
+[ext_resource type="Texture2D" uid="uid://bqk2yhoax4fw0" path="res://assets/HealthBar/VIDA_4.png" id="8_13ejr"]
+[ext_resource type="Texture2D" uid="uid://dccvpewgamc0h" path="res://assets/HealthBar/VIDA_5.png" id="9_f8aet"]
+[ext_resource type="Texture2D" uid="uid://b5hxuvycgau27" path="res://assets/HealthBar/VIDA_6.png" id="10_4vig0"]
+[ext_resource type="Texture2D" uid="uid://dd88s5oipj27q" path="res://assets/HealthBar/VIDA_7.png" id="11_5x4gc"]
+[ext_resource type="Texture2D" uid="uid://1o6mh1th1vfp" path="res://assets/HealthBar/VIDA_8.png" id="12_y6r7t"]
+[ext_resource type="Texture2D" uid="uid://bassedn066us4" path="res://assets/HealthBar/VIDA_10.png" id="13_q6543"]
+[ext_resource type="Texture2D" uid="uid://bdn0oreeueix7" path="res://assets/HealthBar/VIDA_9.png" id="14_1btiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74hch"]
 size = Vector2(36, 98)
@@ -44,6 +55,97 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_dns63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f40a6")
+}],
+"loop": true,
+"name": &"health_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gmuv2")
+}],
+"loop": true,
+"name": &"health_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_q6543")
+}],
+"loop": true,
+"name": &"health_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6ubk5")
+}],
+"loop": true,
+"name": &"health_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2axqw")
+}],
+"loop": true,
+"name": &"health_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_13ejr")
+}],
+"loop": true,
+"name": &"health_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_f8aet")
+}],
+"loop": true,
+"name": &"health_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4vig0")
+}],
+"loop": true,
+"name": &"health_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5x4gc")
+}],
+"loop": true,
+"name": &"health_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_y6r7t")
+}],
+"loop": true,
+"name": &"health_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_1btiv")
+}],
+"loop": true,
+"name": &"health_9",
+"speed": 5.0
+}]
+
 [node name="Ship" type="CharacterBody2D"]
 z_index = 2
 script = ExtResource("1_1uy1h")
@@ -79,5 +181,14 @@ replication_config = SubResource("SceneReplicationConfig_bag7g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_imwxt")
 animation = &"full_health"
+
+[node name="HealthBarLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="AnimatedSprite2D" parent="HealthBarLayer"]
+z_index = 3
+position = Vector2(466, -293)
+scale = Vector2(0.472222, 0.493421)
+sprite_frames = SubResource("SpriteFrames_dns63")
+animation = &"health_4"
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

@@ -55,6 +55,9 @@ func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_firing()
 	update_sprite()  # Update sprite based on movement
+	if $HealthBarLayer and $HealthBarLayer/HealthBar:
+		var screen_size = get_viewport_rect().size
+		$HealthBarLayer/HealthBar.position = Vector2(screen_size.x - 100, 50)  # Adjust offset
 
 func handle_movement(delta: float) -> void:
 	if Input.is_action_pressed("up"):
@@ -157,3 +160,11 @@ func update_sprite() -> void:
 			animated_sprite.play("half_health")
 		else:
 			animated_sprite.play("full_health")
+	# Update HealthBar animation
+	if $HealthBarLayer and $HealthBarLayer.has_node("HealthBar"):
+		var health_bar = $HealthBarLayer.get_node("HealthBar")
+		
+		if health_bar is AnimatedSprite2D:
+			var health_percent = sync_health / max_health
+			var index = int(health_percent * 10)  # Convert health to an index (0-10)
+			health_bar.play("health_%d" % index)
